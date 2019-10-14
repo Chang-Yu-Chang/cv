@@ -1,0 +1,190 @@
+---
+title: "Chang-Yu Chang's resume"
+author: Chang-Yu Chang
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    css: ['css/styles.css', 'resume']
+    self_contained: false
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+
+library(glue)
+library(tidyverse)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- FALSE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+# Load csv with position info
+position_data <- read_csv('positions.csv')
+```
+
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
+```
+
+
+Aside
+================================================================================
+
+
+![Chang-Yu Chang](icon-192.png){width=80%}
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("View this CV online with links at _nickstrayer.me/cv_")
+} else {
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/Chang-Yu-Chang/cv/raw/master/chang_cv.pdf)")
+}
+```
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> chang-yu.chang@yale.edu
+- <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
+- <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
+- <i class="fa fa-link"></i> [changyuchang.name](changyuchang.name)
+- For more information, please contact me via email.
+
+```{r include = F}
+# - <i class="fa fa-phone"></i> +1 000-000-0000
+```
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+```{r}
+skills <- tribble(
+  ~skill,               ~level,
+  "R",                  5,
+  "Python",             4,
+  "Bash",               3,
+  "Mathematica",         2
+)
+
+build_skill_bars(skills)
+
+```
+
+```{r include = F}
+"
+- Experienced in experimental design of synthetic microbial community assembly
+
+- Experienced in network analysis, invasion, community dynamics simulation
+
+- Highly skilled in R, Python, Bash
+
+"
+```
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
+
+The source code is available at [github.com/Chang-Yu-Chang/cv](https://github.com/Chang-Yu-Chang/cv).
+
+Last updated on `r Sys.Date()`.
+
+Main
+================================================================================
+
+Chang-Yu Chang {#title}
+--------------------------------------------------------------------------------
+
+
+```{r}
+intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
+
+I am currently working on building R and Python packages to simulate [dynamics of microbial communities exploitating species](https://github.com/Chang-Yu-Chang/micro.crm), or [algorithm for finding optimal community selection strategy](https://github.com/Chang-Yu-Chang/community-selection). 
+"
+
+cat(sanitize_links(intro_text))
+```
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'education')
+```
+
+
+Research Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+
+```{r}
+print_section(position_data, 'research_positions')
+```
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+::: aside
+:::
+
+```{r}
+print_section(position_data, section_id = "teaching_positions")
+```
+
+
+Selected Publications, Posters, and Talks {data-icon=book}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'academic_articles')
+```
+
+
+
+```{r}
+if(PDF_EXPORT){
+  cat("
+  
+Links {data-icon=link}
+--------------------------------------------------------------------------------
+
+<br>
+
+
+")
+  
+  walk2(links, 1:length(links), function(link, index){
+    print(glue('{index}. {link}'))
+  })
+}
+```
+
+
+
+Fellowships, Grants, and Travel Funds {data-icon=money}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "grant_support")
+```
+
