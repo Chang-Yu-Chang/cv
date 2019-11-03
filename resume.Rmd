@@ -145,12 +145,5 @@ Fellowship {data-icon=money}
 print_section(position_data, "grant_support")
 ```
 
-Academic Awards {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, "awards")
-```
-
 
 
