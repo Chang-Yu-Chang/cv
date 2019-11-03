@@ -1,12 +1,12 @@
 ---
-title: "Chang-Yu Chang's resume"
+title: "Chang-Yu Chang's CV"
 author: Chang-Yu Chang
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
     # set it to true for a self-contained HTML page but it'll take longer to render
     css: ['css/styles.css', 'resume']
-    self_contained: false
+    self_contained: true
 ---
 
 ```{r, include=FALSE}
@@ -19,7 +19,7 @@ library(glue)
 library(tidyverse)
 
 # Set this to true to have links turned into footnotes at the end of the document
-PDF_EXPORT <- FALSE
+PDF_EXPORT <- TRUE
 
 # Holds all the links that were inserted for placement at the end
 links <- c()
@@ -53,9 +53,9 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _nickstrayer.me/cv_")
+  cat("View this CV online with links at _changyuchang.name_")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/Chang-Yu-Chang/cv/raw/master/chang_cv.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/Chang-Yu-Chang/cv/raw/master/cyc_cv.pdf)")
 }
 ```
 
@@ -112,18 +112,26 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Chang-Yu Chang {#title}
+Chang-Yu Chang 張昌祐 {#title}
 --------------------------------------------------------------------------------
 
 
 ```{r}
 intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
 
-I am currently working on building R and Python packages to simulate [dynamics of microbial communities exploitating species](https://github.com/Chang-Yu-Chang/micro.crm), or [algorithm for finding optimal community selection strategy](https://github.com/Chang-Yu-Chang/community-selection). 
+**The second paragraph is saved for project github links.**
 "
 
 cat(sanitize_links(intro_text))
 ```
+
+```{r include = F}
+intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
+
+I am currently working on building R and Python packages to simulate [dynamics of microbial communities exploitating species](https://github.com/Chang-Yu-Chang/micro.crm), or [algorithm for finding optimal community selection strategy](https://github.com/Chang-Yu-Chang/community-selection). 
+"
+```
+
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
@@ -141,7 +149,7 @@ Research Experience {data-icon=laptop}
 print_section(position_data, 'research_positions')
 ```
 
-Teaching Experience {data-icon=chalkboard-teacher}
+Teaching Fellow Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ::: aside
@@ -187,4 +195,15 @@ Fellowships, Grants, and Travel Funds {data-icon=money}
 ```{r}
 print_section(position_data, "grant_support")
 ```
+
+
+Academic Awards {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "awards")
+```
+
+
+
 

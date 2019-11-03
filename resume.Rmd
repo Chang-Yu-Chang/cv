@@ -1,0 +1,156 @@
+---
+title: "Chang-Yu Chang's resume"
+author: Chang-Yu Chang
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    css: ['css/styles.css', 'resume']
+    self_contained: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+
+library(glue)
+library(tidyverse)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- TRUE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+# First let's get the data, filtering to only the items tagged as
+# Resume items
+position_data <- read_csv('positions.csv') %>% 
+  filter(in_resume) %>% 
+  mutate(
+    # Build some custom sections by collapsing others
+    section = case_when(
+      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
+      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      TRUE ~ section
+    )
+  ) 
+
+
+```
+
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
+```
+
+
+Aside
+================================================================================
+
+
+![Chang-Yu Chang](icon-192.png){width=80%}
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("View this CV online with links at _changyuchang.name_")
+} else {
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/Chang-Yu-Chang/cv/raw/master/cyc_resume.pdf)")
+}
+```
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> chang-yu.chang@yale.edu
+- <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
+- <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
+- <i class="fa fa-link"></i> [changyuchang.name](changyuchang.name)
+- For more information, please contact me via email.
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+```{r}
+skills <- tribble(
+  ~skill,               ~level,
+  "R",                  5,
+  "Python",             4,
+  "Bash",               3,
+  "Mathematica",         2
+)
+
+build_skill_bars(skills)
+
+```
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
+
+The source code is available at [github.com/Chang-Yu-Chang/cv](https://github.com/Chang-Yu-Chang/cv).
+
+Last updated on `r Sys.Date()`.
+
+Main
+================================================================================
+
+Chang-Yu Chang 張昌祐 {#title}
+--------------------------------------------------------------------------------
+
+
+```{r}
+intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
+
+**The second paragraph is saved for project github links.**
+"
+
+cat(sanitize_links(intro_text))
+```
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'education')
+```
+
+Selected Publications {data-icon=book}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'academic_articles')
+```
+
+
+Fellowship {data-icon=money}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "grant_support")
+```
+
+Academic Awards {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "awards")
+```
+
+
+
