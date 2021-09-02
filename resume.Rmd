@@ -19,7 +19,7 @@ library(glue)
 library(tidyverse)
 
 # Set this to true to have links turned into footnotes at the end of the document
-PDF_EXPORT <- FALSE
+PDF_EXPORT <- TRUE
 
 # Holds all the links that were inserted for placement at the end
 links <- c()
@@ -77,6 +77,7 @@ Contact Info {#contact}
 - <i class="fa fa-envelope"></i> chang-yu.chang@yale.edu
 - <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
 - <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
+- <i class="fa fa-google"></i> [google scholar](https://scholar.google.com.tw/citations?user=vwkZIIMAAAAJ&hl=en&authuser=1)
 - <i class="fa fa-link"></i> [changyuchang.name](changyuchang.name)
 - For more information, please contact me via email.
 
@@ -89,7 +90,6 @@ skills <- tribble(
   "R",                  5,
   "Python",             4,
   "Bash",               3,
-  "Mathematica",         2
 )
 
 build_skill_bars(skills)
@@ -114,9 +114,7 @@ Chang-Yu Chang 張昌祐 {#title}
 
 
 ```{r}
-intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
-
-**The second paragraph is saved for project github links.**
+intro_text <- "My research interest lies in the intersection of systems biology and microbial community ecology and evolution. I combine theory and experiment to study how microbial communites assemble and evovle.
 "
 
 cat(sanitize_links(intro_text))

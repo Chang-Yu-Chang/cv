@@ -1,7 +1,8 @@
 section,in_resume,title,loc,institution,start,end,description_1,description_2,description_3
-education,TRUE,"PhD. Candidate, Ecology and Evolutionary Biology",Yale University,"New Haven, CT",2017,2022,Studying community assembly by using systems biology and experimental microbiology,Advisor: Alvaro Sanchez,
-education,TRUE,"M.S., Ecology and Evolutionary Biology",National Taiwan University,"Taipei, Taiwan",2015,2017,Thesis: Near-infrared modulates burying behavior in burying beetles,Advisor: Sheng-Feng Shen,
-education,TRUE,"B.S., Life Science",National Taiwan University,"Taipei, Taiwan",2011,2015,Math and computational courses oriented,,
+education,TRUE,"PhD. Candidate, Ecology and Evolutionary Biology",Yale University,"New Haven, CT",2017,now,Predicting microbial commnity assembly and function under selection,Advisor: Alvaro Sanchez,
+education,TRUE,B.S. in Life Science and M.S. in Ecology and Evolutionary Biology,National Taiwan University,"Taipei, Taiwan",2011,2017,Math and computational courses oriented,Insect behavior ecology and evolutionary game theory,
+education,FALSE,"M.S., Ecology and Evolutionary Biology",National Taiwan University,"Taipei, Taiwan",2015,2017,Thesis: Near-infrared modulates burying behavior in burying beetles,Advisor: Sheng-Feng Shen,
+education,FALSE,"B.S., Life Science",National Taiwan University,"Taipei, Taiwan",2011,2015,Math and computational courses oriented,,
 grant_support,TRUE,Government Fellowship for Oversea Study,Taiwan Ministry of Education,N/A,2017,2020,$42000 per year for three years,,
 grant_support,FALSE,Graduate Student Attending International Conference,Taiwan Ministry of Education,N/A,2016,2016,"$1,000 ",,
 grant_support,FALSE,College Student Research Scholarship,Taiwan Ministry of Science and Technology,N/A,2014,2015,"$1,200 ",,
@@ -11,7 +12,9 @@ teaching_positions,FALSE,Laboratory for Biology Of Terrestrial Arthropods,Yale U
 teaching_positions,FALSE,Laboratory for Evolution & Functional Traits,Yale University,"New Haven, CT",2019,2019,TF,,
 teaching_positions,FALSE,Biostatistics,National Taiwan University,"Taipei, Taiwan",2016,2016,TF,,
 teaching_positions,FALSE,General Botany Lab,National Taiwan University,"Taipei, Taiwan",2015,2015,TF and lectured,,
-academic_articles,TRUE,"[Ecological effects of cellular computing inmicrobial populations](https://link.springer.com/article/10.1007/s11047-018-9708-8)",Natural Computing ,N/A,2018,2018,Mini-review,,
+academic_articles,TRUE,[Artificially selecting bacterial communities using propagule strategies](https://onlinelibrary.wiley.com/doi/10.1111/evo.14092),Evolution,N/A,2020,2020,Empirical work on artificially selecting bacterial communities,Conducted high-throughput experiment and community phenotyping,
+academic_articles,TRUE,[Engineering complex communities by directed evolution](https://www.nature.com/articles/s41559-021-01457-5),Nature Ecology and Evolution,N/A,2021,2021,Theoretical work on artificial community selection,Developed computational tool to simulate community selection,
+academic_articles,FALSE,[Ecological effects of cellular computing in microbial populations](https://link.springer.com/article/10.1007/s11047-018-9708-8),Natural Computing ,N/A,2018,2018,Mini-review,,
 conference_attended,FALSE,ISME,"Leipzig, Germany",,2018,2018,,,
 conference_attended,FALSE,18th Congress of Animal Behavior and Ecology ,Taiwan,National Sun Yat-sen University ,2017,2017,Winner Prize for research and oral presentation,,
 conference_attended,FALSE,15th Congress of the International Society for Behavioral Ecology,United Kingdom,Unversity of Exeter,2016,2016,Oral Presentation (abstract reviewed),,
