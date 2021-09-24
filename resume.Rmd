@@ -144,7 +144,7 @@ print_section(position_data, "grant_support")
 ```
 
 
-Referees {data-icon=person}
+References {data-icon=person}
 --------------------------------------------------------------------------------
 
 ```{r}
