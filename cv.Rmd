@@ -138,7 +138,7 @@ print_section(position_data, 'education')
 ```
 
 
-Selected Publications, Posters, and Talks {data-icon=book}
+Publications{data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -167,11 +167,19 @@ print_section(position_data, section_id = "teaching_positions")
 ```
 
 
-Academic Awards {data-icon=newspaper}
+
+Talks and Posters {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, "awards")
+print_section(position_data, "presentations")
+```
+
+Services {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "services")
 ```
 
 
