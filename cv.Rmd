@@ -19,7 +19,7 @@ library(glue)
 library(tidyverse)
 
 # Set this to true to have links turned into footnotes at the end of the document
-PDF_EXPORT <- FALSE
+PDF_EXPORT <- TRUE
 
 # Holds all the links that were inserted for placement at the end
 links <- c()
@@ -80,8 +80,7 @@ skills <- tribble(
   ~skill,               ~level,
   "R",                  5,
   "Python",             4,
-  "Bash",               3,
-  "Mathematica",         2
+  "Bash",               4,
 )
 
 build_skill_bars(skills)
@@ -117,9 +116,7 @@ Chang-Yu Chang 張昌祐 {#title}
 
 
 ```{r}
-intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
-
-**The second paragraph is saved for project github links.**
+intro_text <- "My research interest lies in the intersection of systems biology, microbial evolotion and community ecology. I am interested in combining theory and experiment to study how microbial communities assemble and evolve.
 "
 
 cat(sanitize_links(intro_text))
@@ -141,50 +138,11 @@ print_section(position_data, 'education')
 ```
 
 
-Research Experience {data-icon=laptop}
---------------------------------------------------------------------------------
-
-
-```{r}
-print_section(position_data, 'research_positions')
-```
-
-Teaching Fellow Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-::: aside
-:::
-
-```{r}
-print_section(position_data, section_id = "teaching_positions")
-```
-
-
 Selected Publications, Posters, and Talks {data-icon=book}
 --------------------------------------------------------------------------------
 
 ```{r}
 print_section(position_data, 'academic_articles')
-```
-
-
-
-```{r}
-if(PDF_EXPORT){
-  cat("
-  
-Links {data-icon=link}
---------------------------------------------------------------------------------
-
-<br>
-
-
-")
-  
-  walk2(links, 1:length(links), function(link, index){
-    print(glue('{index}. {link}'))
-  })
-}
 ```
 
 
@@ -197,6 +155,18 @@ print_section(position_data, "grant_support")
 ```
 
 
+
+Teaching Fellow Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+::: aside
+:::
+
+```{r}
+print_section(position_data, section_id = "teaching_positions")
+```
+
+
 Academic Awards {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
@@ -204,6 +174,13 @@ Academic Awards {data-icon=newspaper}
 print_section(position_data, "awards")
 ```
 
+
+References {data-icon=person}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "referees")
+```
 
 
 

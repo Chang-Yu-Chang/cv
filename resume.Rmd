@@ -89,7 +89,7 @@ skills <- tribble(
   ~skill,               ~level,
   "R",                  5,
   "Python",             4,
-  "Bash",               3,
+  "Bash",               4,
 )
 
 build_skill_bars(skills)
