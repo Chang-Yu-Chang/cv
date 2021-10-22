@@ -72,22 +72,22 @@ Contact Info {#contact}
 # - <i class="fa fa-phone"></i> +1 000-000-0000
 ```
 
+
+```{r include = F}
+"
 Skills {#skills}
 --------------------------------------------------------------------------------
-
-```{r}
 skills <- tribble(
   ~skill,               ~level,
-  "R",                  5,
-  "Python",             4,
-  "Bash",               4,
+  'R',                  5,
+  'Python',             4,
+  'Bash',               4,
 )
 
 build_skill_bars(skills)
 
-```
+"
 
-```{r include = F}
 "
 - Experienced in experimental design of synthetic microbial community assembly
 
