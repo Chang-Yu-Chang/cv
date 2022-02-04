@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 library(glue)
 library(tidyverse)
-
+  
 # Set this to true to have links turned into footnotes at the end of the document
 PDF_EXPORT <- TRUE
 
