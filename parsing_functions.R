@@ -44,10 +44,14 @@ strip_links_from_cols <- function(data, cols_to_strip){
   data
 }
 
+# position_data <- read_csv('positions.csv')
+# section_id = "education"
+# section_id = "academic_articles"
+# section_id = "honors"
 # Take a position dataframe and the section id desired
 # and prints the section to markdown. 
 print_section <- function(position_data, section_id){
-  position_data %>% 
+  temp <- position_data %>% 
     filter(section == section_id) %>% 
     arrange(desc(end)) %>% 
     mutate(id = 1:n()) %>% 
@@ -58,9 +62,7 @@ print_section <- function(position_data, section_id){
       values_drop_na = TRUE
     ) %>% 
     group_by(id) %>% 
-    mutate(
-      descriptions = list(description)
-    ) %>% 
+    mutate(descriptions = list(description)) %>% 
     ungroup() %>% 
     filter(description_num == 'description_1') %>% 
     mutate(
@@ -69,22 +71,44 @@ print_section <- function(position_data, section_id){
         end,
         glue('{end} - {start}')
       ),
-      description_bullets = map_chr(descriptions, ~paste('-', ., collapse = '\n')),
+      #description_bullets = map_chr(descriptions, ~paste('-', ., collapse = '\n')),
+      description_bullets = map_chr(descriptions, ~paste0("", ., collapse = "  \n"))
+      #description_bullets = map_chr(descriptions, ~paste(" ", ., collapse = '\n'))
     ) %>% 
     strip_links_from_cols(c('title', 'description_bullets')) %>% 
-    mutate_all(~ifelse(is.na(.), 'N/A', .)) %>% 
-    glue_data(
-      "### {title}",
-      "\n\n",
-      "{loc}",
-      "\n\n",
-      "{institution}",
-      "\n\n",
-      "{timeline}", 
-      "\n\n",
-      "{description_bullets}",
-      "\n\n\n",
-    )
+    mutate_all(~ifelse(is.na(.), 'N/A', .)) %>%
+    view
+  if (section_id == "honors" | section_id == "presentations") {
+    temp %>%
+      mutate(description_bullets = str_replace_all(description_bullets, "- ", "")) %>%
+      glue_data(
+        "### {title}", "\n\n",
+        "{loc}", "\n\n", 
+        "{institution}", "\n\n",
+        "{timeline}", "\n\n",
+        "\t\n\n\n",
+      ) %>% return()
+  } else if (section_id == "academic_articles") {
+    temp %>% 
+      mutate(description_bullets = str_replace_all(description_bullets, "- ", "")) %>%
+      glue_data(
+        "### {title}", "\n\n",
+        "{loc}", "\n\n", 
+        "{institution}", "\n\n",
+        "{timeline}", "\n\n",
+        "{description_bullets}", "\n\n\n",
+      ) %>% return()
+  } else {
+    temp %>% 
+      #mutate(description_bullets = str_replace_all(description_bullets, "- ", "")) %>%
+      glue_data(
+        "### {title}", "\n\n",
+        "{loc}", "\n\n", 
+        "{institution}", "\n\n",
+        "{timeline}", "\n\n",
+        "{description_bullets}", "\n\n\n",
+      ) %>% return()
+  }
 }
 
 # Construct a bar chart of skills

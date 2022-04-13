@@ -64,7 +64,7 @@ Contact Info {#contact}
 
 - <i class="fa fa-envelope"></i> chang-yu.chang@yale.edu
 - <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
-- <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
+- <i class="fa fa-github"></i> [Chang-Yu-Chang](https://github.com/Chang-Yu-Chang)
 - <i class="fa fa-link"></i> [changyuchang.name](changyuchang.name)
 - For more information, please contact me via email.
 
@@ -122,13 +122,6 @@ intro_text <- "My research interest lies in the intersection of systems biology,
 cat(sanitize_links(intro_text))
 ```
 
-```{r include = F}
-intro_text <- "My research interest lies in the intersection of systems biology and community ecology. I am interested in combining theory and experiment to study how microbes interact with each other and form an ecological community with versatile functions.
-
-I am currently working on building R and Python packages to simulate [dynamics of microbial communities exploitating species](https://github.com/Chang-Yu-Chang/micro.crm), or [algorithm for finding optimal community selection strategy](https://github.com/Chang-Yu-Chang/community-selection). 
-"
-```
-
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
@@ -137,22 +130,27 @@ Education {data-icon=graduation-cap data-concise=true}
 print_section(position_data, 'education')
 ```
 
+Honors and Awards {data-icon=money}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "honors")
+```
+
+
 
 Publications{data-icon=book}
 --------------------------------------------------------------------------------
+
+
+\* these authors contributed equally
+
 
 ```{r}
 print_section(position_data, 'academic_articles')
 ```
 
 
-
-Fellowships, Grants, and Travel Funds {data-icon=money}
---------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, "grant_support")
-```
 
 
 
@@ -168,7 +166,7 @@ print_section(position_data, section_id = "teaching_positions")
 
 
 
-Talks and Posters {data-icon=newspaper}
+Selected Presentations {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 ```{r}
