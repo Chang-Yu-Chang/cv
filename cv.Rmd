@@ -5,7 +5,10 @@ date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
     # set it to true for a self-contained HTML page but it'll take longer to render
-    css: ['css/styles.css', 'resume']
+    css: ['css/styles.css', 
+    'css/fontawesome-free-6.1.1-web/css/all.css',  #icon
+    'css/academicons-1.9.2/css/academicons.css', # icon
+    'resume']
     self_contained: true
 ---
 
@@ -53,7 +56,7 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
-  cat("View this CV online with links at _changyuchang.name_")
+  cat("View this [CV online](https://www.changyuchang.name/pdf/cv.html)")
 } else {
   cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/Chang-Yu-Chang/cv/raw/master/cyc_cv.pdf)")
 }
@@ -62,41 +65,13 @@ if(PDF_EXPORT){
 Contact Info {#contact}
 --------------------------------------------------------------------------------
 
+- <i class="fa fa-link"></i> [www.changyuchang.name](https://www.changyuchang.name/)
 - <i class="fa fa-envelope"></i> chang-yu.chang@yale.edu
 - <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
-- <i class="fa fa-github"></i> [Chang-Yu-Chang](https://github.com/Chang-Yu-Chang)
-- <i class="fa fa-link"></i> [changyuchang.name](changyuchang.name)
+- <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
+- <i class="ai ai-google-scholar"></i> [google cholar](https://scholar.google.com.tw/citations?user=vwkZIIMAAAAJ&hl=en)
 - For more information, please contact me via email.
 
-```{r include = F}
-# - <i class="fa fa-phone"></i> +1 000-000-0000
-```
-
-
-```{r include = F}
-"
-Skills {#skills}
---------------------------------------------------------------------------------
-skills <- tribble(
-  ~skill,               ~level,
-  'R',                  5,
-  'Python',             4,
-  'Bash',               4,
-)
-
-build_skill_bars(skills)
-
-"
-
-"
-- Experienced in experimental design of synthetic microbial community assembly
-
-- Experienced in network analysis, invasion, community dynamics simulation
-
-- Highly skilled in R, Python, Bash
-
-"
-```
 
 
 Disclaimer {#disclaimer}
@@ -116,7 +91,7 @@ Chang-Yu Chang 張昌祐 {#title}
 
 
 ```{r}
-intro_text <- "My research interest lies in the intersection of systems biology, microbial evolotion and community ecology. I am interested in combining theory and experiment to study how microbial communities assemble and evolve.
+intro_text <- "My research interest lies in the intersection of systems biology, microbial evolotion, and community ecology. I am interested in combining theory and experiment to study how microbial communities assemble and evolve.
 "
 
 cat(sanitize_links(intro_text))
@@ -130,24 +105,24 @@ Education {data-icon=graduation-cap data-concise=true}
 print_section(position_data, 'education')
 ```
 
-Honors and Awards {data-icon=money}
---------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, "honors")
-```
-
 
 
 Publications{data-icon=book}
 --------------------------------------------------------------------------------
-
 
 \* these authors contributed equally
 
 
 ```{r}
 print_section(position_data, 'academic_articles')
+```
+
+
+Grants, Fellowships, and Awards {data-icon=money}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "honors")
 ```
 
 
@@ -166,12 +141,24 @@ print_section(position_data, section_id = "teaching_positions")
 
 
 
-Selected Presentations {data-icon=newspaper}
+
+
+Invited Seminars {data-icon=person-chalkboard}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, "presentations")
+print_section(position_data, "invited_presentations")
 ```
+
+
+Contributed Presentations {data-icon=person-chalkboard}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, "contributed_presentations")
+```
+
+
 
 Services {data-icon=newspaper}
 --------------------------------------------------------------------------------
@@ -181,7 +168,7 @@ print_section(position_data, "services")
 ```
 
 
-References {data-icon=person}
+References {data-icon=people-group}
 --------------------------------------------------------------------------------
 
 ```{r}

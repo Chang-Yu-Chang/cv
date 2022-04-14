@@ -44,10 +44,10 @@ strip_links_from_cols <- function(data, cols_to_strip){
   data
 }
 
-# position_data <- read_csv('positions.csv')
-# section_id = "education"
+position_data <- read_csv('positions.csv')
+section_id = "education"
 # section_id = "academic_articles"
-# section_id = "honors"
+ section_id = "honors"
 # Take a position dataframe and the section id desired
 # and prints the section to markdown. 
 print_section <- function(position_data, section_id){
@@ -69,16 +69,26 @@ print_section <- function(position_data, section_id){
       timeline = ifelse(
         is.na(start) | start == end,
         end,
-        glue('{end} - {start}')
+        glue('{start}-{end}')
       ),
       #description_bullets = map_chr(descriptions, ~paste('-', ., collapse = '\n')),
       description_bullets = map_chr(descriptions, ~paste0("", ., collapse = "  \n"))
       #description_bullets = map_chr(descriptions, ~paste(" ", ., collapse = '\n'))
     ) %>% 
     strip_links_from_cols(c('title', 'description_bullets')) %>% 
-    mutate_all(~ifelse(is.na(.), 'N/A', .)) %>%
-    view
-  if (section_id == "honors" | section_id == "presentations") {
+    mutate_all(~ifelse(is.na(.), 'N/A', .)) 
+  
+  if (section_id == "honors" | section_id == "education") {
+    temp %>%
+      glue_data(
+        "### {title}", "\n\n",
+        "{loc}", "\n\n", 
+        "{institution}", "\n\n",
+        "{timeline}", "\n\n",
+        "\t\n\n\n",
+      ) %>% return()
+    
+  } else if (section_id == "teaching_positions" | section_id == "invited_presentations" | section_id == "contributed_presentations") {
     temp %>%
       mutate(description_bullets = str_replace_all(description_bullets, "- ", "")) %>%
       glue_data(
@@ -88,7 +98,7 @@ print_section <- function(position_data, section_id){
         "{timeline}", "\n\n",
         "\t\n\n\n",
       ) %>% return()
-  } else if (section_id == "academic_articles") {
+  }else if (section_id == "academic_articles") {
     temp %>% 
       mutate(description_bullets = str_replace_all(description_bullets, "- ", "")) %>%
       glue_data(
