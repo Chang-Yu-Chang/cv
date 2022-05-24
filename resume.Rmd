@@ -5,7 +5,10 @@ date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
     # set it to true for a self-contained HTML page but it'll take longer to render
-    css: ['css/styles.css', 'resume']
+    css: ['css/styles.css', 
+    'css/fontawesome-free-6.1.1-web/css/all.css',  #icon
+    'css/academicons-1.9.2/css/academicons.css', # icon
+    'resume']
     self_contained: true
 ---
 
@@ -81,20 +84,6 @@ Contact Info {#contact}
 - <i class="fa fa-link"></i> [changyuchang.name](changyuchang.name)
 - For more information, please contact me via email.
 
-Skills {#skills}
---------------------------------------------------------------------------------
-
-```{r}
-skills <- tribble(
-  ~skill,               ~level,
-  "R",                  5,
-  "Python",             4,
-  "Bash",               4,
-)
-
-build_skill_bars(skills)
-
-```
 
 
 Disclaimer {#disclaimer}
@@ -135,23 +124,16 @@ Selected Publications {data-icon=book}
 print_section(position_data, 'academic_articles')
 ```
 
-
-Fellowship {data-icon=money}
+Grants, Fellowships, and Awards {data-icon=money}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, "grant_support")
+print_section(position_data, "honors")
 ```
 
-
-References {data-icon=person}
+References {data-icon=people-group}
 --------------------------------------------------------------------------------
 
 ```{r}
 print_section(position_data, "referees")
 ```
-
-
-
-
-
