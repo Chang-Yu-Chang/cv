@@ -103,8 +103,7 @@ Chang-Yu Chang 張昌祐 {#title}
 
 
 ```{r}
-intro_text <- "My research interest lies in the intersection of systems biology and microbial community ecology and evolution. I combine theory and experiment to study how microbial communites assemble and evovle.
-"
+intro_text <- ""
 
 cat(sanitize_links(intro_text))
 ```
