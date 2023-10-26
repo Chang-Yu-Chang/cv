@@ -53,7 +53,7 @@ Aside
 
 ![Chang-Yu Chang](icon-192.png){width=80%}
 
-```{r}
+```{r eval=F}
 # When in export mode the little dots are unaligned, so fix that. 
 if(PDF_EXPORT){
   cat("View this [CV online](https://www.changyuchang.name/pdf/cv.html)")
@@ -65,11 +65,11 @@ if(PDF_EXPORT){
 Contact Info {#contact}
 --------------------------------------------------------------------------------
 
-- <i class="fa fa-link"></i> [www.changyuchang.name](https://www.changyuchang.name/)
-- <i class="fa fa-envelope"></i> chang-yu.chang@yale.edu
+- changyuchang5@gmail.com
 - <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
 - <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
-- <i class="ai ai-google-scholar"></i> [google cholar](https://scholar.google.com.tw/citations?user=vwkZIIMAAAAJ&hl=en)
+- <i class="fa fa-google"></i> [google scholar](https://scholar.google.com.tw/citations?user=g273Ts8AAAAJ&hl=en)
+- <i class="fa fa-link"></i> [personal webite](https://www.changyuchang.name/)
 - For more information, please contact me via email.
 
 
@@ -97,7 +97,7 @@ cat(sanitize_links(intro_text))
 ```
 
 
-Professional Appointments and Education {data-icon=graduation-cap data-concise=true}
+Professional Appointment and Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
