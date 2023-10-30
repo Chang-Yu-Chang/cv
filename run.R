@@ -3,5 +3,5 @@
 
 rmarkdown::render(input = "cv.Rmd", output_file = "cv.html")
 rmarkdown::render(input = "resume.Rmd", output_file = "resume.html")
-pagedown::chrome_print(input = "cv.html")
-pagedown::chrome_print(input = "resume.html")
+pagedown::chrome_print(input = "cv.html") # pdf
+pagedown::chrome_print(input = "resume.html") # pdf

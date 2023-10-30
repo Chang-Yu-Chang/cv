@@ -89,8 +89,6 @@ Contact Info {#contact}
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
-
 The source code is available at [github.com/Chang-Yu-Chang/cv](https://github.com/Chang-Yu-Chang/cv).
 
 Last updated on `r Sys.Date()`.

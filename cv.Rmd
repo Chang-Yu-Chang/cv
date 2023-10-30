@@ -67,19 +67,16 @@ Contact Info {#contact}
 
 - changyuchang5@gmail.com
 - <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
-- <i class="fa fa-github"></i> [github](https://github.com/Chang-Yu-Chang)
-- <i class="fa fa-google"></i> [google scholar](https://scholar.google.com.tw/citations?user=g273Ts8AAAAJ&hl=en)
-- <i class="fa fa-link"></i> [personal webite](https://www.changyuchang.name/)
-- For more information, please contact me via email.
+- <i class="fa fa-github"></i> [GitHub](https://github.com/Chang-Yu-Chang)
+- <i class="fa fa-user-graduate"></i> [Google Scholar](https://scholar.google.com.tw/citations?user=g273Ts8AAAAJ&hl=en)
+- <i class="fa fa-link"></i> [Personal Webite](https://www.changyuchang.name/)
 
 
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
-
-The source code is available at [github.com/Chang-Yu-Chang/cv](https://github.com/Chang-Yu-Chang/cv).
+The [source code](https://github.com/Chang-Yu-Chang/cv) on GitHub
 
 Last updated on `r Sys.Date()`.
 
@@ -128,11 +125,9 @@ print_section(position_data, "honors")
 
 
 
-Teaching Fellow Experience {data-icon=chalkboard-teacher}
+Teaching and Mentoring {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
-::: aside
-:::
 
 ```{r}
 print_section(position_data, section_id = "teaching_positions")
