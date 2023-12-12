@@ -2,8 +2,8 @@
 local({
 
   # the requested version of renv
-  version <- "1.0.3"
-  attr(version, "sha") <- NULL
+  version <- "1.0.3.9000"
+  attr(version, "sha") <- "0ffca477fc06fa8b8cbf51287eea674ef1ec635f"
 
   # the project directory
   project <- getwd()
@@ -50,8 +50,21 @@ local({
 
   })
 
-  if (!enabled)
+  # bail if we're not enabled
+  if (!enabled) {
+
+    # if we're not enabled, we might still need to manually load
+    # the user profile here
+    profile <- Sys.getenv("R_PROFILE_USER", unset = "~/.Rprofile")
+    if (file.exists(profile)) {
+      cfg <- Sys.getenv("RENV_CONFIG_USER_PROFILE", unset = "TRUE")
+      if (tolower(cfg) %in% c("true", "t", "1"))
+        sys.source(profile, envir = globalenv())
+    }
+
     return(FALSE)
+
+  }
 
   # avoid recursion
   if (identical(getOption("renv.autoloader.running"), TRUE)) {
