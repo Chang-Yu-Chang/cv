@@ -124,19 +124,6 @@ print_section(position_data, "honors")
 
 
 
-
-Teaching and Mentoring {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-
-```{r}
-print_section(position_data, section_id = "teaching_positions")
-```
-
-
-
-
-
 Invited Seminars {data-icon=person-chalkboard}
 --------------------------------------------------------------------------------
 
@@ -152,13 +139,21 @@ Contributed Presentations {data-icon=person-chalkboard}
 print_section(position_data, "contributed_presentations")
 ```
 
+Teaching and Mentoring {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
 
 
-Services {data-icon=newspaper}
+```{r}
+print_section(position_data, section_id = "teaching_positions")
+```
+
+
+
+Service {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, "services")
+print_section(position_data, "service")
 ```
 
 
