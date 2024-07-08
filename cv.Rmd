@@ -65,7 +65,7 @@ if(PDF_EXPORT){
 Contact Info {#contact}
 --------------------------------------------------------------------------------
 
-- changyuchang5@gmail.com
+- <i class="fa fa-envelope"></i> changyuchang5@gmail.com
 - <i class="fa fa-twitter"></i> [changyu_chang](https://twitter.com/changyu_chang)
 - <i class="fa fa-github"></i> [GitHub](https://github.com/Chang-Yu-Chang)
 - <i class="fa fa-user-graduate"></i> [Google Scholar](https://scholar.google.com.tw/citations?user=g273Ts8AAAAJ&hl=en)
@@ -76,9 +76,9 @@ Contact Info {#contact}
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-The [source code](https://github.com/Chang-Yu-Chang/cv) on GitHub
+GitHub [source code](https://github.com/Chang-Yu-Chang/cv)
 
-Last updated on `r Sys.Date()`.
+Updated on `r Sys.Date()`
 
 Main
 ================================================================================
@@ -106,7 +106,7 @@ print_section(position_data, 'education')
 Publications{data-icon=book}
 --------------------------------------------------------------------------------
 
-\* these authors contributed equally
+\* these authors contributed equally; \# corresponding authors
 
 
 ```{r}
